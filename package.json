@@ -1,5 +1,5 @@
 {
-  "name": "Complete-Me",
+  "name": "@lexbonder/complete-Me",
   "version": "1.0.0",
   "description": "",
   "main": "Trie.js",
@@ -22,7 +22,7 @@
     "chai": "^3.5.0",
     "eslint": "^4.9.0",
     "locus": "^2.0.1",
-    "mocha": "^3.4.2",
+    "mocha": "^3.5.3",
     "webpack": "^3.3.0"
   }
 }
