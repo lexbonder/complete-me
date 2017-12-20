@@ -272,8 +272,4 @@ describe('Trie', () => {
   })
 })
 
-
-// phase 6
-// 
-
 // console.log( JSON.stringify(completion, null, 4) );
