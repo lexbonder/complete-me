@@ -26,6 +26,17 @@ describe('Trie', () => {
       expect(completion.count()).to.equal(2);
     })
 
+    it('Should not count duplicate words', function() {
+      expect(completion.count()).to.equal(0);
+      
+      completion.insert('pizza');
+      expect(completion.count()).to.equal(1);
+      
+      completion.insert('pizza');
+
+      expect(completion.count()).to.equal(1);
+    })
+
     it('Should insert a word and bulid a tree', function() {
       completion.insert('pizza');
 
