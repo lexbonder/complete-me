@@ -98,7 +98,13 @@ describe('Trie', () => {
   describe('Suggest', () => {
 
     it('Should return an array', function() {
-      expect(completion.suggest()).to.deep.equal([])
+      expect(completion.suggest('cat')).to.deep.equal([])
+    })
+
+    it('Should return an empty if the word isn\'t in the tree', function() {
+      completion.insert('pizza');
+
+      expect(completion.suggest('cat')).to.deep.equal([]);
     })
 
     it('Should return an array with a completed word', function() {
