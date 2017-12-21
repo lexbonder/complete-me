@@ -122,16 +122,28 @@ describe('Trie', () => {
       expect(completion.suggest('piz')).to.deep.equal(["pize", "pizza", "pizzeria", "pizzicato", "pizzle"]);
     })
 
-    it('Should increase its favor rating if it is selected', function() {
-      completion.populate(dictionary);
+    it('Should increase its favor if it is selected', function () {
+      completion.insert('cat');
 
-      completion.suggest("piz")
+      expect(completion.root.children
+        .c.children
+        .a.children
+        .t.favored).to.equal(0);
+
+      completion.select('cat');
+
+      expect(completion.root.children
+        .c.children
+        .a.children
+        .t.favored).to.equal(1);
+    })
+
+    it('Should increase its position in the array if it is selected', function() {
+      completion.populate(dictionary);
 
       expect(completion.suggest('piz')).to.deep.equal(["pize", "pizza", "pizzeria", "pizzicato", "pizzle"]);
 
       completion.select("pizzeria")
-
-      completion.suggest("piz")
    
       expect(completion.suggest('piz')).to.deep.equal(["pizzeria", "pize", "pizza", "pizzicato", "pizzle"]);
     })
@@ -139,8 +151,6 @@ describe('Trie', () => {
     it('Should list words from most to least favored', function() {
       completion.populate(dictionary);
 
-      completion.suggest("piz")
-
       expect(completion.suggest('piz')).to.deep.equal(["pize", "pizza", "pizzeria", "pizzicato", "pizzle"]);
 
       completion.select("pizzeria")
@@ -149,8 +159,6 @@ describe('Trie', () => {
       completion.select("pizzle")
       completion.select("pizzle")
       completion.select("pizzle")
-
-      completion.suggest("piz")
    
       expect(completion.suggest('piz')).to.deep.equal(["pizzle", "pizza", "pizzeria", "pize", "pizzicato"]);
     })
