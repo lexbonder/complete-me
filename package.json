@@ -1,8 +1,8 @@
 {
-  "name": "@lexbonder/complete-Me",
+  "name": "@lexbonder/complete-me",
   "version": "1.0.0",
   "description": "",
-  "main": "Trie.js",
+  "main": "index.js",
   "directories": {
     "test": "tests"
   },
