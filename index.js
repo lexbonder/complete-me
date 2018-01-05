@@ -1,3 +1,3 @@
-const Trie = require('./Trie.js');
+const Trie = require('./lib/Trie.js');
 
 module.exports = Trie;
